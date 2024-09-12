@@ -96,7 +96,7 @@ const Review = () => {
             <Flex  gap={10}>
               <Heading as="h3" size="md">You Pay:</Heading>
               {cart.length > 0 && 
-                <Text color="black" fontSize="lg">Rs. {cart.reduce((c,el) =>c+(el?.product?.price*(el?.quntity)),0)}</Text>
+                <Text color="black" fontSize="lg">Rs. {cart.reduce((c,el) =>el.product != null && c+(el?.product?.price*(el?.quntity)),0)}</Text>
               }
             </Flex>
 
