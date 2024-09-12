@@ -143,7 +143,7 @@ const cartHandler = () => {
         
         </AccordionPanel>
       </AccordionItem>
-      
+
   </Accordion>
 
     </Box>
@@ -157,7 +157,7 @@ const cartHandler = () => {
            <Text color="gray.600">{el?.product?.name}</Text>
 
            <Flex justifyContent="space-between" p={2}>
-            <Text>Quantity: {el?.quntity}</Text>
+            <Text>Quantity: {el.product!= null && el?.quntity}</Text>
             <Text>Rs.{el?.product?.price}</Text>
            </Flex>
             <Divider/>
