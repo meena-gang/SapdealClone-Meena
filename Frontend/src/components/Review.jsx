@@ -73,14 +73,14 @@ const Review = () => {
                 cart.map((el)=>
                 <Flex key={el.id} justifyContent="space-between"  p={2} >
                     <Box display="flex" width="25%" >
-                   <Image src={el.product.image} alt='el.title' width={{lg:"40%",sm:"0%",md:"0%"}}/>
-                   <Text>{el.product.name}</Text>
+                   <Image src={el?.product?.image} alt='el.title' width={{lg:"40%",sm:"0%",md:"0%"}}/>
+                   <Text>{el?.product?.name}</Text>
 
                    </Box>
 
                    <Box >
                    <Select onChange={(e) => qtychange(e.target.value,el._id)}>
-                   <option value={el.quntity}>{el.quntity}</option>
+                   <option value={el.quntity}>{el?.quntity}</option>
                     <option value={1}>1</option>
                     <option value={2}>2</option>
                     <option value={3}>3</option>
@@ -88,7 +88,7 @@ const Review = () => {
                    </Box>
 
                    <Box>25 jan to 25 jan</Box>
-                    <Box>Total: {el.product.price * el.quntity}</Box>
+                    <Box>Total: {el?.product?.price * el?.quntity}</Box>
                    
 
                 </Flex>
@@ -105,7 +105,7 @@ const Review = () => {
             <Flex  gap={10}>
               <Heading as="h3" size="md">You Pay:</Heading>
 
-              <Text color="black" fontSize="lg">Rs. {cart.reduce((c,el)=>c+(el.product.price*el.quntity),0)}</Text>
+              <Text color="black" fontSize="lg">Rs. {cart.reduce((c,el)=>c+(el?.product?.price*el?.quntity),0)}</Text>
 
             </Flex>
 

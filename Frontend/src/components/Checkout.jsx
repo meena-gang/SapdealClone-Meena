@@ -53,99 +53,99 @@ const cartHandler = () => {
 
     <Box  width={{lg:"75%",md:"100%",sm:"100%"}} p={5}>
     
-    <Accordion defaultIndex={[2]} allowToggle border="1px solid gray" borderRadius="10px" width={{lg:"100%",md:"400px",sm:"360px"}}> 
+  <Accordion defaultIndex={[2]} allowToggle border="1px solid gray" borderRadius="10px" width={{lg:"100%",md:"400px",sm:"360px"}}> 
 
-  <AccordionItem border="none" borderBottom="1px solid grey"  >
-    <h2>
-      <AccordionButton>
-        <Box as="span" flex='1' onClick={()=>setlogin(!login)} color={login==true?"white":'gray.600'} backgroundColor={login==true?"black":"white"} borderRadius="10px" p={2} textAlign='left'>
-        <Alert status='success' variant="none">
-            <Flex direction={{lg:"row",sm:"column"}}>
-         { login==false && <AlertIcon color="green" boxSize={6}/>}
-            <Text color={login?"white":"gray.600"}>1.Login</Text>
-            { login==false && <Text ml={{lg:"200px"}}>{user?.email}</Text>}
-       </Flex>
-       
-        </Alert>
-          {/* Section 1 title */}
-        </Box>
+      <AccordionItem border="none" borderBottom="1px solid grey"  >
+        <h2>
+          <AccordionButton>
+            <Box as="span" flex='1' onClick={()=>setlogin(!login)} color={login==true?"white":'gray.600'} backgroundColor={login==true?"black":"white"} borderRadius="10px" p={2} textAlign='left'>
+            <Alert status='success' variant="none">
+                <Flex direction={{lg:"row",sm:"column"}}>
+            { login==false && <AlertIcon color="green" boxSize={6}/>}
+                <Text color={login?"white":"gray.600"}>1.Login</Text>
+                { login==false && <Text ml={{lg:"200px"}}>{user?.email}</Text>}
+          </Flex>
+          
+            </Alert>
+              {/* Section 1 title */}
+            </Box>
+            
+          </AccordionButton>
+        </h2>
+        <AccordionPanel pb={4}>
         
-      </AccordionButton>
-    </h2>
-    <AccordionPanel pb={4}>
-     
 
-    </AccordionPanel>
-  </AccordionItem>
+        </AccordionPanel>
+      </AccordionItem>
 
-  <AccordionItem border="none" borderBottom="1px solid grey">
-    <h2>
-      <AccordionButton>
-        <Box as="span" flex='1'onClick={()=>setadd(!add)} color={add==true?"white":'gray.600'} backgroundColor={add==true?"black":"white"} borderRadius="10px" p={2} textAlign='left'>
-         
-        <Alert status='success' variant="none">
-            <Flex direction={{lg:"row",sm:"column"}}>
-         { add==false && <AlertIcon color="green" boxSize={6}/>}
-            <Text color={add?"white":"gray.600"}>2.DELIVERY ADDRESS</Text>
+      <AccordionItem border="none" borderBottom="1px solid grey">
+        <h2>
+          <AccordionButton>
+            <Box as="span" flex='1'onClick={()=>setadd(!add)} color={add==true?"white":'gray.600'} backgroundColor={add==true?"black":"white"} borderRadius="10px" p={2} textAlign='left'>
+            
+            <Alert status='success' variant="none">
+                <Flex direction={{lg:"row",sm:"column"}}>
+            { add==false && <AlertIcon color="green" boxSize={6}/>}
+                <Text color={add?"white":"gray.600"}>2.DELIVERY ADDRESS</Text>
 
-            { add==false && <Box  ml={{lg:"150px"}}>{showadr.address && <Box>
-               <Text>{`${showadr.name}  Mob: ${showadr.mob} `}</Text> 
-               <Text>{`${showadr.address} ${showadr.locality}`}</Text>
-               <Text>{`${showadr.city} - ${showadr.pincode}, ${showadr.state}`} <span style={{color:"blue"}}>Change</span></Text>
-            </Box>}</Box>}
+                { add==false && <Box  ml={{lg:"150px"}}>{showadr.address && <Box>
+                  <Text>{`${showadr.name}  Mob: ${showadr.mob} `}</Text> 
+                  <Text>{`${showadr.address} ${showadr.locality}`}</Text>
+                  <Text>{`${showadr.city} - ${showadr.pincode}, ${showadr.state}`} <span style={{color:"blue"}}>Change</span></Text>
+                </Box>}</Box>}
 
-       </Flex>
-       
-        </Alert>
+          </Flex>
+          
+            </Alert>
 
+            
+            </Box>
+            
+          </AccordionButton>
+        </h2>
+        <AccordionPanel pb={4}>
         
-        </Box>
+        <Address/>
+
+        </AccordionPanel>
+      </AccordionItem>
+
+
+      <AccordionItem border="none" borderBottom="1px solid grey">
+        <h2>
+          <AccordionButton>
+            <Box as="span" flex='1' onClick={()=>setreview(!review)} color={review==true?"white":'gray.600'} backgroundColor={review==true?"black":"white"} borderRadius="10px" p={4} textAlign='left'>
+            3.Review Order
+            </Box>
+            
+          </AccordionButton>
+        </h2>
+        <AccordionPanel pb={4}>
+
+        <Review/>
         
-      </AccordionButton>
-    </h2>
-    <AccordionPanel pb={4}>
-     
-     <Address/>
-
-    </AccordionPanel>
-  </AccordionItem>
+        </AccordionPanel>
+      </AccordionItem>
 
 
-  <AccordionItem border="none" borderBottom="1px solid grey">
-    <h2>
-      <AccordionButton>
-        <Box as="span" flex='1' onClick={()=>setreview(!review)} color={review==true?"white":'gray.600'} backgroundColor={review==true?"black":"white"} borderRadius="10px" p={4} textAlign='left'>
-         3.Review Order
-        </Box>
+      <AccordionItem border="none" >
+        <h2>
+          <AccordionButton>
+            <Box as="span" flex='1' onClick={()=>setpay(!pay)} color={pay==true?"white":'gray.600'} backgroundColor={pay==true?"black":"white"} borderRadius="10px" p={4} textAlign='left'>
+            4.Make Payment
+            </Box>
+            
+          </AccordionButton>
+        </h2>
+        <AccordionPanel pb={4} color="gray.400">
+
+        <Pay/>
         
-      </AccordionButton>
-    </h2>
-    <AccordionPanel pb={4}>
+        </AccordionPanel>
+      </AccordionItem>
+      
+  </Accordion>
 
-     <Review/>
-     
-    </AccordionPanel>
-  </AccordionItem>
-
-
-  <AccordionItem border="none" >
-    <h2>
-      <AccordionButton>
-        <Box as="span" flex='1' onClick={()=>setpay(!pay)} color={pay==true?"white":'gray.600'} backgroundColor={pay==true?"black":"white"} borderRadius="10px" p={4} textAlign='left'>
-         4.Make Payment
-        </Box>
-        
-      </AccordionButton>
-    </h2>
-    <AccordionPanel pb={4} color="gray.400">
-
-     <Pay/>
-     
-    </AccordionPanel>
-  </AccordionItem>
-
-
-</Accordion>
     </Box>
 
     <Box color="grey" p={5} backgroundColor="gray.50" width={{lg:"25%",sm:"100%",md:"60%"}} >
@@ -154,11 +154,11 @@ const cartHandler = () => {
        <Box textAlign="left" height="400px" overflow="scroll" p={5}  mt={2}>
         {cart?.map((el)=>
         <div key={el.id}>
-           <Text color="gray.600">{el.product.name}</Text>
+           <Text color="gray.600">{el?.product?.name}</Text>
 
            <Flex justifyContent="space-between" p={2}>
-            <Text>Quantity: {el.quntity}</Text>
-            <Text>Rs.{el.product.price}</Text>
+            <Text>Quantity: {el?.quntity}</Text>
+            <Text>Rs.{el?.product?.price}</Text>
            </Flex>
             <Divider/>
         </div>
@@ -167,7 +167,7 @@ const cartHandler = () => {
 
        <Flex justifyContent="space-between" mt={5} >
         <Text>Total:</Text>
-        <Text>Rs.{cart.reduce((c,el)=>c+(el.product.price*el.quntity),0)}</Text>
+        <Text>Rs.{cart.reduce((c,el)=>c+(el?.product?.price*el?.quntity),0)}</Text>
       </Flex>
       <Flex justifyContent="space-between" mt={4}>
         <Text>Delivery Charges:</Text>
@@ -177,7 +177,7 @@ const cartHandler = () => {
 
       <Flex justifyContent="space-between" mt={4}>
         <Heading as="h2" size="md">You Pay</Heading>
-        <Heading as="h2" size="md" color="black">Rs.{cart.reduce((c,el)=>c+(el.product.price*el.quntity),0)}</Heading>
+        <Heading as="h2" size="md" color="black">Rs.{cart.reduce((c,el)=>c+(el?.product?.price*el?.quntity),0)}</Heading>
       </Flex>
       <Divider color="grey" mt={3}/>
 

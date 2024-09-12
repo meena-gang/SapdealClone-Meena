@@ -34,7 +34,7 @@ export default function CartView({product,qtychange,handelremove}){
       <div>Rs. {product?.product?.price}</div>
       <div>
           <select onChange={(e) => qtychange(e.target.value,product._id)}>
-          <option value={product?.quntity}>{product?.quntity}</option>
+          {/* <option value={product?.quntity}>{product?.quntity}</option> */}
               <option value={1}>1</option>
               <option value={2}>2</option>
               <option value={3}>3</option>
