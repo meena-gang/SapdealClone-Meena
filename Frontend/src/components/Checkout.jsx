@@ -167,7 +167,7 @@ const cartHandler = () => {
 
        <Flex justifyContent="space-between" mt={5} >
         <Text>Total:</Text>
-        <Text>Rs.{cart.reduce((c,el)=>c+(el?.product?.price*el?.quntity),0)}</Text>
+        <Text>Rs.{cart.reduce((c,el)=> el.product != null && c+(el?.product?.price*el?.quntity),0)}</Text>
       </Flex>
       <Flex justifyContent="space-between" mt={4}>
         <Text>Delivery Charges:</Text>
@@ -177,7 +177,7 @@ const cartHandler = () => {
 
       <Flex justifyContent="space-between" mt={4}>
         <Heading as="h2" size="md">You Pay</Heading>
-        <Heading as="h2" size="md" color="black">Rs.{cart.reduce((c,el)=>c+(el?.product?.price*el?.quntity),0)}</Heading>
+        <Heading as="h2" size="md" color="black">Rs.{cart.reduce((c,el)=>el.product != null && c+(el?.product?.price*el?.quntity),0)}</Heading>
       </Flex>
       <Divider color="grey" mt={3}/>
 
