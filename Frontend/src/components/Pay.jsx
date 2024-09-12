@@ -88,7 +88,7 @@ const Pay = () => {
          </Flex>
             
 
-         <Button  color="white" backgroundColor="#E40046" mt={8} onClick={handleOrdered}>PAY RS. {cart.reduce((c,el)=>c+(el?.product?.price*el?.quntity),0)}</Button>
+         <Button  color="white" backgroundColor="#E40046" mt={8} onClick={handleOrdered}>PAY RS. {cart.reduce((c,el)=>el.product != null && c+(el?.product?.price*el?.quntity),0)}</Button>
          <Text color="black" mt={5}>7 Days Easy Returns</Text>
               <Text color="black">
                 Trust pay: 100% Payment Protection. Return or Replacement is
