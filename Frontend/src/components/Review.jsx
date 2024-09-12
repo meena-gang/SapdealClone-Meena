@@ -20,7 +20,10 @@ const Review = () => {
         "token":token
       }
   }
-    ).then(res=>{setCart(res.data.products)})   
+    ).then(res=>{
+        
+      
+      setCart(res.data.products)})   
   };
 
   const qtychange=(val,prodid)=>{
@@ -56,6 +59,7 @@ const Review = () => {
           <Box height="400px" overflow="scroll">
             { cart.length > 0 && (
                 cart.map((el)=>
+                  el.product !=null &&(
                 <Flex key={el.id} justifyContent="space-between"  p={2} >
                     <Box display="flex" width="25%" >
                    <Image src={el?.product?.image} alt='el.title' width={{lg:"40%",sm:"0%",md:"0%"}}/>
@@ -79,6 +83,7 @@ const Review = () => {
                 </Flex>
                 )
               )
+              )
             }
 
           </Box>
@@ -91,7 +96,7 @@ const Review = () => {
             <Flex  gap={10}>
               <Heading as="h3" size="md">You Pay:</Heading>
               {cart.length > 0 && 
-                <Text color="black" fontSize="lg">Rs. {cart.reduce((c,el)=>c+(el?.product?.price*el?.quntity),0)}</Text>
+                <Text color="black" fontSize="lg">Rs. {cart.reduce((c,el) =>el.product != null && c+(el?.product?.price*el?.quntity),0)}</Text>
               }
             </Flex>
 
