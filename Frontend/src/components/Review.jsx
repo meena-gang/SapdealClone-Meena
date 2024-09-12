@@ -5,19 +5,12 @@ import "./review.css"
 
 const Review = () => {
 
-   
-    
       const [cart, setCart] = React.useState([]);
       const [qty, setqty] = useState(1);
-
-
       const token=localStorage.getItem("token");
 
    React.useEffect(()=>{
     cartHandler();
-           
-   
-
    },[qty])
   
   const cartHandler = () => {
@@ -26,20 +19,13 @@ const Review = () => {
       headers:{
         "token":token
       }
-  
   }
-    ).then(res=>{setCart(res.data.products)})
-
-    
-   
+    ).then(res=>{setCart(res.data.products)})   
   };
 
   const qtychange=(val,prodid)=>{
     
-    
-
     axios.patch("https://sapdealbackend-1.onrender.com/carts/update",
-
       {
         productId:prodid,
         quntity:val
@@ -54,7 +40,6 @@ const Review = () => {
           
    
   }
-
       
   return (
     <div>
@@ -69,7 +54,7 @@ const Review = () => {
           </Flex>
 
           <Box height="400px" overflow="scroll">
-            {
+            { cart.length > 0 && (
                 cart.map((el)=>
                 <Flex key={el.id} justifyContent="space-between"  p={2} >
                     <Box display="flex" width="25%" >
@@ -87,12 +72,13 @@ const Review = () => {
                    </Select>
                    </Box>
 
-                   <Box>25 jan to 25 jan</Box>
+                   <Box>Before 24th Sept</Box>
                     <Box>Total: {el?.product?.price * el?.quntity}</Box>
                    
 
                 </Flex>
                 )
+              )
             }
 
           </Box>
@@ -104,9 +90,9 @@ const Review = () => {
            <Box >
             <Flex  gap={10}>
               <Heading as="h3" size="md">You Pay:</Heading>
-
-              <Text color="black" fontSize="lg">Rs. {cart.reduce((c,el)=>c+(el?.product?.price*el?.quntity),0)}</Text>
-
+              {cart.length > 0 && 
+                <Text color="black" fontSize="lg">Rs. {cart.reduce((c,el)=>c+(el?.product?.price*el?.quntity),0)}</Text>
+              }
             </Flex>
 
             <Button width="100%" color="white" backgroundColor="#E40046" mt={5}>PROCEED TO PAYMENT</Button>
